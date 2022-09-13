@@ -3,9 +3,8 @@
 .main { grid-area: main; }
 .footer { grid-area: footer; }
 .sub-header { grid-area: sub-header; }
-.center { grid-area: center; }
 
-body, html{
+body, html, .login-layout, .marketplace-layout {
     height: 100%;
 }
 body{
@@ -15,17 +14,15 @@ body{
 /* ===== LAYOUT ===== */
 
 .login-layout {
-    height: 100%;
     display: grid;
     grid-template-columns: 5% 90% 5%;
-    grid-template-rows: 10% 30% 55% 5%;
+    grid-template-rows: 10% 30% auto 5%;
 }
 
 .marketplace-layout {
-    height: 100%;
     display: grid;
     grid-template-columns: 2% 96% 2%;
-    grid-template-rows: 10% 7% 78% 5%;
+    grid-template-rows: 10% 7% auto 5%;
 }
 
 
@@ -54,11 +51,12 @@ body{
     box-shadow: inset 0 1px 3px #ddd;
     border-radius: 4px;
     box-sizing: border-box;
-    padding-left: 14px;
-    padding-right: 14px;
-    padding-top: 9px;
-    padding-bottom: 9px;
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-top: 28px;
+    padding-bottom: 28px;
     margin-top: 15px;
+    font-size: 25px;
 }
 
 .button {
@@ -69,12 +67,14 @@ body{
     box-shadow: inset 0 1px 3px #ddd;
     border-radius: 4px;
     box-sizing: border-box;
-    padding-left: 14px;
-    padding-right: 14px;
-    padding-top: 9px;
-    padding-bottom: 9px;
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-top: 28px;
+    padding-bottom: 28px;
     margin-bottom: 20px;
-    text-size-adjust: 10px;
+    text-size-adjust: 20px;
+    font-size: 25px;
+
 }
 
 .navbar {
@@ -93,12 +93,17 @@ body{
     background-color: rgb(71, 181, 255);
     
 }
-
 .card {
     border: 1px solid black;
-    margin : 5px;
+    margin-left : 1%;
+    margin-right : 1%;
+    margin-top: 5px;
+    margin-bottom: 5px;
     display: flex;
+    max-height: 500px;
+    width: 47%;
 }
+
 
 /* ===== MINOR ===== */
 /* flex */
@@ -122,9 +127,10 @@ body{
     display: flex;
     flex-direction: column;
 }
-
-
-
+.flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
 
 /* text */
 .c-white {
@@ -147,4 +153,55 @@ body{
 }
 .italic {
     font-style: italic;
+}
+
+
+/* ===== Media Query ===== */
+
+.screen-formatter {
+    display: flex;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 1300px) { 
+    .screen-formatter {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    .card{
+        width: 100%;
+    }
+
+    .input {
+        width: 100%;
+        border: 1px solid grey;
+        box-shadow: inset 0 1px 3px #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 22px;
+        padding-bottom: 22px;
+        margin-top: 15px;
+        font-size: 25px;
+    }
+
+    .button {
+        width: 100%;
+        border: 1px solid rgb(71, 181, 255);
+        background-color: rgb(19, 99, 223);
+        border: 1px solid rgb(71, 181, 255);
+        box-shadow: inset 0 1px 3px #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 22px;
+        padding-bottom: 22px;
+        margin-bottom: 20px;
+        text-size-adjust: 20px;
+        font-size: 25px;
+    
+    }
 }
